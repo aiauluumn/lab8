@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жұмыс барысы — Issues, Projects, Actions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a class="logo" href="index.html">Командалық <span>жоба</span></a>
+      <ul class="menu">
+        <li><a href="index.html">Басты бет</a></li>
+        <li><a href="student1.html">Аяулым</a></li>
+        <li><a href="student2.html">Молдыр</a></li>
+        <li><a href="issues.html">Issues</a></li>
+        <li><a href="kanban.html">Kanban тақтасы</a></li>
+        <li><a href="steps.html" class="active">Жұмыс барысы</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero small">
+    <div class="container">
+      <span class="badge">Зертханалық жұмыс № 8</span>
+      <h1>Жұмыс барысы</h1>
+      <p>Issues, Kanban және GitHub Actions бойынша қадам-қадам нұсқаулық</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="section">
+      <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>GitHub Issues құру</h3>
+          <p>Негізгі репозиторийге өтіп, <b>Issues</b> қойындысын ашыңыз және <b>New issue</b> батырмасын басыңыз. Тақырыбы мен сипаттамасын жазып (не істеу керек, қандай файлдар өзгереді, қабылдау критерийі), Issue-ды сақтаңыз. Әр қатысушы кемінде 1 Issue құруы тиіс.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Issue-ды орындаушыға тағайындау</h3>
+          <p>Issue бетінде <b>Assignees</b> бөлімінен орындаушыны таңдаңыз, <b>Labels</b> арқылы белгі қосыңыз (bug, enhancement, documentation) және мерзімі мен түсіндірмесін жазыңыз.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>GitHub Projects (Kanban) тақтасын құру</h3>
+          <p>Репозиторийден <b>Projects → New project</b> таңдап, <b>Board</b> түрін таңдаңыз. To Do, In Progress, Review және Done бағандарын жасап, Issues-ті тиісті бағандарға сүйреп орналастырыңыз.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Issue негізінде тармақ (branch) құру</h3>
+          <p>Issue бетінде <b>Create a branch for this issue</b> батырмасын басыңыз. GitHub жаңа тармақты автоматты түрде жасайды. Локалды репозиторийде оны жүктеңіз:</p>
+          <pre>git fetch
+git checkout &lt;issue-branch-name&gt;</pre>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Тапсырманы орындау және Pull Request жасау</h3>
+          <p>Issue талаптарына сай өзгерістер енгізіп, оларды сақтаңыз және жіберіңіз:</p>
+          <pre>git add .
+git commit -m "Issue #X орындалды"
+git push origin &lt;branch-name&gt;</pre>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h3>Pull Request сипаттамасы</h3>
+          <p>GitHub-та Pull Request жасаңыз. Сипаттамасына мына жолды жазсаңыз, Pull Request біріктірілгенде Issue автоматты түрде жабылады:</p>
+          <pre>Closes #X</pre>
+        </div>
+      </div>
+      <div class="step" id="actions">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <h3>GitHub Actions арқылы автоматтандыру</h3>
+          <p>Репозиторийде <span class="file-name">.github/workflows/html-check.yml</span> файлын жасап, ішіне төмендегі мазмұнды жазыңыз:</p>
+          <pre>name: HTML Check
+
+on: [push, pull_request]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: HTML validation
+        run: echo "HTML файлдары тексерілді"</pre>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-body">
+          <h3>Workflow тексеру</h3>
+          <p>GitHub-та <b>Actions</b> қойындысына өтіңіз. Pull Request ашқанда немесе push жасағанда workflow іске қосылғанын тексеріңіз. Жасыл белгі тапсырма сәтті орындалғанын білдіреді.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Командаларға нұсқаулық</h2>
+      <p class="section-sub">Қысқаша түсініктеме</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Команда</th><th>Мақсаты</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>git fetch</code></td><td>Қашықтағы өзгерістерді алу</td></tr>
+            <tr><td><code>git checkout &lt;branch&gt;</code></td><td>Тармаққа ауысу</td></tr>
+            <tr><td><code>git commit -m</code></td><td>Өзгерістерді сақтау</td></tr>
+            <tr><td><code>git push</code></td><td>Өзгерістерді GitHub-қа жіберу</td></tr>
+            <tr><td><code>Closes #X</code></td><td>Issue-ды автоматты жабу</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Тапсырма</h2>
+      <p class="section-sub">Жұмыс соңында орындалуы тиіс</p>
+      <ul class="checklist">
+        <li>Репозиторийде кемінде 3 Issue құрыңыз.</li>
+        <li>Projects (Kanban) тақтасында тапсырмаларды орналастырыңыз.</li>
+        <li>Бір Issue-ды branch → commit → Pull Request арқылы орындаңыз.</li>
+        <li>GitHub Actions workflow-ты іске қосыңыз.</li>
+        <li>Pull Request сәтті біріктірілуі тиіс.</li>
+      </ul>
+    </section>
+
+    <a class="back" href="index.html">← Басты бетке оралу</a>
+
+  </main>
+
+  <footer>
+    © 2026 Командалық жоба · Зертханалық-тәжірибелік жұмыс № 8 · GitHub Issues, Projects және Actions
+  </footer>
+
+</body>
+</html>

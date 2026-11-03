@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban тақтасы</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a class="logo" href="index.html">Командалық <span>жоба</span></a>
+      <ul class="menu">
+        <li><a href="index.html">Басты бет</a></li>
+        <li><a href="student1.html">Аяулым</a></li>
+        <li><a href="student2.html">Молдыр</a></li>
+        <li><a href="issues.html">Issues</a></li>
+        <li><a href="kanban.html" class="active">Kanban тақтасы</a></li>
+        <li><a href="steps.html">Жұмыс барысы</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero small">
+    <div class="container">
+      <span class="badge">Projects (Kanban)</span>
+      <h1>Kanban тақтасы</h1>
+      <p>Тапсырмалар төрт бағанға бөлінген: жұмыс барысын бір қарағанда көруге болады.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="board">
+        <div class="column col-todo">
+          <div class="col-head"><span>To Do</span><span class="count">1</span></div>
+          <div class="issue">
+            <span class="num">#4</span>
+            <h4>Сілтемелерді тексеру</h4>
+            <div class="meta">
+              <span class="label bug">bug</span>
+              <span class="who">Молдыр</span>
+            </div>
+          </div>
+        </div>
+        <div class="column col-progress">
+          <div class="col-head"><span>In Progress</span><span class="count">1</span></div>
+          <div class="issue">
+            <span class="num">#3</span>
+            <h4>README файлын жазу</h4>
+            <div class="meta">
+              <span class="label documentation">documentation</span>
+              <span class="who">Аяулым</span>
+            </div>
+          </div>
+        </div>
+        <div class="column col-review">
+          <div class="col-head"><span>Review</span><span class="count">1</span></div>
+          <div class="issue">
+            <span class="num">#2</span>
+            <h4>Қатысушылар беттерінің дизайнын жақсарту</h4>
+            <div class="meta">
+              <span class="label enhancement">enhancement</span>
+              <span class="who">Молдыр</span>
+            </div>
+          </div>
+        </div>
+        <div class="column col-done">
+          <div class="col-head"><span>Done</span><span class="count">1</span></div>
+          <div class="issue">
+            <span class="num">#1</span>
+            <h4>Басты бетке қатысушылар тізімін қосу</h4>
+            <div class="meta">
+              <span class="label enhancement">enhancement</span>
+              <span class="who">Аяулым</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="legend">GitHub Projects ішінде Issues карточкаларын бір бағаннан екінші бағанға сүйреп жылжытасыз.</p>
+    </section>
+    <a class="back" href="index.html">← Басты бетке оралу</a>
+  </main>
+
+  <footer>
+    © 2026 Командалық жоба · Зертханалық-тәжірибелік жұмыс № 8 · GitHub Issues, Projects және Actions
+  </footer>
+
+</body>
+</html>
